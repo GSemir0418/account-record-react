@@ -50,6 +50,22 @@ pnpm create vite@3.1.0 account-record-react -- --template react-ts
 
 - 先装依赖，再写配置`.eslintrc`、`settings.json`和`scripts`命令即可
 - VSCode 的`Eslint`插件可以使其具有错误提示功能，否则只能使用命令行进行代码校验
+   - 记录一个小插曲：ESLint失效——命令行可以使用但编辑器没有提示
+   - 解决方案：在终端的OUTPUT窗口，切换到ESLint，发现pnpm报错
+   ```
+   Error: Command failed: pnpm root -g
+   ``` 
+   - 输入pnpm root -g，提示先运行pnpm setup
+   ```sh
+   pnpm setup
+   source ~/.zshrc
+   ```
+   - 然后重启vscode即可
+   - 还有一种可能是配置项添加
+   ```json
+   "eslint.enable": true,
+   "eslint.packageManager": "pnpm",
+   ```
 - 如果对某些默认规则不习惯，可以在`.eslintrc`的`rules`属性将其设置为`off`
 
 ## 0 其他
