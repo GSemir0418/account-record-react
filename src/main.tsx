@@ -6,5 +6,5 @@ const root = ReactDOM.createRoot(div as HTMLElement)
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 )

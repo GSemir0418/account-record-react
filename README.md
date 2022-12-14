@@ -21,8 +21,15 @@ pnpm create vite@3.1.0 account-record-react -- --template react-ts
    - ```bash
      npm config set save-prefix=""
      ```
+### 1.3 部署到Github Page
 
-### 1.3 配置 snippets
+1. 打包项目（注意配置github的base）
+2. 进入dist，初始化github仓库，提交代码
+3. 在远端仓库中配置Page，设置好分支即可
+4. 已将以上命令整合为自动化脚本，因此执行`bin/deploy_github.sh`即可
+- 访问https://gsemir0418.github.io/account-record-react-preview
+
+### 1.4 配置 Snippets
 
 1. `ctrl+shift+p`打开命令窗口
 2. 输入 snippet，选择`Snippets: Configure User Snippets`
@@ -42,7 +49,7 @@ pnpm create vite@3.1.0 account-record-react -- --template react-ts
 
    注意换行及缩进
 
-### 1.4 配置 Eslint
+### 1.5 配置 Eslint
 
 - google `eslint antfu` 或者
 
@@ -67,6 +74,9 @@ pnpm create vite@3.1.0 account-record-react -- --template react-ts
    "eslint.packageManager": "pnpm",
    ```
 - 如果对某些默认规则不习惯，可以在`.eslintrc`的`rules`属性将其设置为`off`
+
+## 2 React Router 6实践
+
 
 ## 0 其他
 
