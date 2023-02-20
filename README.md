@@ -77,7 +77,31 @@ pnpm create vite@3.1.0 account-record-react -- --template react-ts
 
 ## 2 React Router 6实践
 
-
+> https://reactrouter.com/en/main
+### 2.1 初始化路由
+安装 `react-router-dom`
+main.tsx 引入：
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+// 定义 router
+const router = createBrowserRouter([
+  { path: '/', element: <div>root</div> }, {
+    path: '/1', element: <div>11</div>,
+  },
+])
+// ...
+```
+与 React 关联
+```tsx
+// ...
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
+```
 ## 0 其他
 
 - vim 删除至某处 `dt'x'`
