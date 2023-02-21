@@ -1,4 +1,3 @@
-import { Outlet } from 'react-router-dom'
 import { WelcomeLayout } from '../layouts/WelcomeLayout'
 import { Welcome1 } from '../pages/Welcome1'
 import { Welcome2 } from '../pages/Welcome2'
@@ -7,13 +6,8 @@ import { Welcome4 } from '../pages/Welcome4'
 
 export const welcomeRoutes = {
   path: 'welcome',
-  element: <Outlet />,
+  element: <WelcomeLayout/>,
   children: [
-    {
-      // 仅在根路由展示的内容
-      index: true,
-      element: <WelcomeLayout/>,
-    },
     {
       path: '1',
       element: <Welcome1/>,
