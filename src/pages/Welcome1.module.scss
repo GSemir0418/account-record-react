@@ -1,0 +1,26 @@
+.redBd {
+  border: 1px solid red
+}
+.blueBg {
+  background-color: blue;
+}
+.container {
+  background-color: #000;
+  &:hover {
+    background: #999;
+  }
+}
+.father {
+  .child {
+    color: red
+  }
+}
+.random {
+  color: red
+}
+.random2 {
+  color: red
+}
+:global(.gsq2) {
+  background: #000;
+}
