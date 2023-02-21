@@ -1,9 +1,16 @@
 // 过渡动画的全程包括三种状态：稳定状态、进入状态和退出状态
 import { animated, useTransition } from '@react-spring/web'
-import { Outlet, useLocation } from 'react-router-dom'
+import type { ReactNode } from 'react'
+import { useLocation, useOutlet } from 'react-router-dom'
+
+const renderCache: Record<string, ReactNode> = {}
 export const WelcomeLayout: React.FC = () => {
   // 获取当前地址栏的信息
   const location = useLocation()
+  // 获取当前路由渲染出口
+  const outlet = useOutlet()
+  // 缓存当前路由与 Outlet 组件
+  renderCache[location.pathname] = outlet
   const transitions = useTransition(location.pathname, {
     // 进入状态 (屏幕右边进入)
     from: { transform: 'translateX(100%)' },
@@ -17,7 +24,8 @@ export const WelcomeLayout: React.FC = () => {
   return transitions((style, pathname) => {
     return <animated.div key={pathname} style={style}>
       <div style={{ textAlign: 'center' }}>
-        <Outlet />
+        {/* 渲染缓存中的 outlet，而不是最新的 <Outlet /> */}
+        {renderCache[pathname]}
       </div>
     </animated.div>
   })
